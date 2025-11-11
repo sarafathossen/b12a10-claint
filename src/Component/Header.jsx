@@ -1,137 +1,156 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const handelLogOut = () => {
-        console.log('User Trying Log Out')
-        logOut().then(() => {
-            toast('You Logged Out Successfully')
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-            console.log(error)
-        });
-    }
-    const handelTheme = (checked) => {
-        console.log(checked)
-        const html = document.querySelector('html')
-        if (checked) {
-            html.setAttribute('data-theme', 'dark')
-        } else {
-            html.setAttribute('data-theme', 'light')
-        }
+  const { user, logOut } = useContext(AuthContext);
 
-    }
-    return (
-        <div className="navbar bg-base-100  flex justify-between w-11/12 mx-auto ">
-            {/* Navbar Start */}
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
+  // ✅ থিম ইনিশিয়াল সেট
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const html = document.querySelector('html');
+    html.setAttribute('data-theme', savedTheme);
+  }, []);
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success('You Logged Out Successfully!');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-                    <ul
-                        tabIndex={-1}
-                        className="menu items-center menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-3">
-                        <Link to="/">Home</Link>
-                        <Link to="/all-service">Service</Link>
+  const handleTheme = (checked) => {
+    const html = document.querySelector('html');
+    const newTheme = checked ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme); // ✅ সেভ থিম পছন্দ
+  };
 
+  return (
+    <div className="navbar bg-base-100 flex justify-between w-11/12 mx-auto border-b border-gray-200 dark:border-gray-700 transition-all duration-300">
+      {/* Navbar Start */}
+      <div className="navbar-start flex items-center">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
 
+          <ul
+            tabIndex={-1}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3 dark:bg-[#1e2535] dark:text-gray-200"
+          >
+            <Link to="/">Home</Link>
+            <Link to="/all-service">Services</Link>
 
-                        {!user && (
-                            <>
-                                <Link to="/auth/login">Login</Link>
-                                <Link to="/auth/register">Register</Link>
-                            </>
-                        )}
+            {!user && (
+              <>
+                <Link to="/auth/login">Login</Link>
+                <Link to="/auth/register">Register</Link>
+              </>
+            )}
 
-                        <div className="flex">
-                            {user &&
-                                <>
-                                    <div className="flex items-center space-x-4 ">
-                                        <Link to="/auth/register">My Services</Link>
-                                        <Link to="/auth/register">Add Service</Link>
-                                        <Link to="/auth/register">My Bookings</Link>
+            {user && (
+              <>
+                <Link to="/my-service">My Services</Link>
+                <Link to="/add-service">Add Service</Link>
+                <Link to="/my-booking">My Bookings</Link>
 
-
-                                        <Link to="/auth/my-profile"><img
-                                            className="h-[35px] w-[35px] rounded-full border shadow-md  object-cover"
-                                            src={user?.photoURL || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fuser_666201&psig=AOvVaw2gvjB1Ct5dBixusBZ9QnAQ&ust=1761283494785000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKCYjLvKuZADFQAAAAAdAAAAABAE"}
-
-                                        /></Link>
-                                    </div>
-
-                                </>
-                            }
-                        </div>
-                        {
-                            user && <button onClick={handelLogOut} className="btn btn-outline my-4 w-[150px] ">Log Out </button>
-                        }
-                    </ul>
-                </div>
-                {/* <a to className="btn btn-ghost text-xl">Gamehub</a> */}
-                <Link to='/' className=' text-2xl font-semibold'>Workly </Link>
-                <input
-                    onChange={(e) => handelTheme(e.target.checked)}
-                    type="checkbox"
-                    defaultChecked={localStorage.getItem('theme') === "dark"}
-                    className="toggle ml-8" />
-            </div>
-
-
-            <div className="hidden lg:flex items-center">
-                <ul className=" items-center menu menu-horizontal px-1 gap-3 flex">
-                    <Link to="/">Home</Link>
-                    <Link to="/all-service">Services</Link>
-
-
-                    {!user && (
-                        <>
-                            <Link to="/auth/login">Login</Link>
-                            <Link to="/auth/register">Register</Link>
-                        </>
-                    )}
-
-                    <div className="flex">
-                        {user &&
-                            <>
-                                <div className="flex items-center space-x-4 ">
-                                    <Link to="/my-service">My Services</Link>
-                                    <Link to="/add-service">Add Service</Link>
-                                    <Link to="/my-booking">My Bookings</Link>
-
-
-                                    <Link to="/auth/my-profile"><img
-                                        className="h-[35px] w-[35px] rounded-full border shadow-md  object-cover"
-                                        src={user?.photoURL || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fuser_666201&psig=AOvVaw2gvjB1Ct5dBixusBZ9QnAQ&ust=1761283494785000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKCYjLvKuZADFQAAAAAdAAAAABAE"}
-
-                                    /></Link>
-                                </div>
-
-                            </>
-                        }
-                    </div>
-
-                    <div className="">
-                        {
-                            user && <button onClick={handelLogOut} className="btn btn-outline my-4 w-[120px] ">Log Out </button>
-                        }
-                    </div>
-
-
-                </ul>
-            </div>
+                <Link to="/auth/my-profile">
+                  <img
+                    className="h-[35px] w-[35px] rounded-full border shadow-md object-cover"
+                    src={
+                      user?.photoURL ||
+                      'https://cdn-icons-png.flaticon.com/512/666/666201.png'
+                    }
+                    alt="User"
+                  />
+                </Link>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-outline my-4 w-[150px]"
+                >
+                  Log Out
+                </button>
+              </>
+            )}
+          </ul>
         </div>
-    );
+
+        <Link
+          to="/"
+          className="text-2xl font-semibold text-gray-800 dark:text-gray-100 ml-2"
+        >
+          Workly
+        </Link>
+
+        {/* 🌙 Theme Toggle */}
+        <label className="flex items-center cursor-pointer ml-4">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            className="toggle"
+            defaultChecked={localStorage.getItem('theme') === 'dark'}
+          />
+        </label>
+      </div>
+
+      {/* Navbar Menu for Large Devices */}
+      <div className="hidden lg:flex items-center">
+        <ul className="menu menu-horizontal px-1 gap-4 items-center dark:text-gray-100">
+          <Link to="/">Home</Link>
+          <Link to="/all-service">Services</Link>
+
+          {!user && (
+            <>
+              <Link to="/auth/login">Login</Link>
+              <Link to="/auth/register">Register</Link>
+            </>
+          )}
+
+          {user && (
+            <>
+              <Link to="/my-service">My Services</Link>
+              <Link to="/add-service">Add Service</Link>
+              <Link to="/my-booking">My Bookings</Link>
+              <Link to="/auth/my-profile">
+                <img
+                  className="h-[35px] w-[35px] rounded-full border shadow-md object-cover"
+                  src={
+                    user?.photoURL ||
+                    'https://cdn-icons-png.flaticon.com/512/666/666201.png'
+                  }
+                  alt="User"
+                />
+              </Link>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-outline w-[120px]"
+              >
+                Log Out
+              </button>
+            </>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
 };
 
 export default Header;

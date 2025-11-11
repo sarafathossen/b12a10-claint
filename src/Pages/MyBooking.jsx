@@ -7,7 +7,7 @@ import Footer from '../Component/Footer ';
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
-    const [ratings, setRatings] = useState({}); // Booking ID অনুযায়ী rating state
+    const [ratings, setRatings] = useState({});
 
     useEffect(() => {
         if (!user?.email) return;
@@ -22,7 +22,6 @@ const MyBooking = () => {
                     b => b.userEmail?.trim().toLowerCase() === user.email.trim().toLowerCase()
                 );
 
-                // যদি আগে rating থাকে তা state-তে ধরতে পার
                 const initialRatings = {};
                 filtered.forEach(b => {
                     if (b.rating) initialRatings[b._id] = b.rating;
@@ -62,8 +61,6 @@ const MyBooking = () => {
                             });
                             const remaining = bookings.filter(booking => booking._id !== id);
                             setBookings(remaining);
-
-                            // ratings state থেকেও remove
                             const updatedRatings = { ...ratings };
                             delete updatedRatings[id];
                             setRatings(updatedRatings);
@@ -71,11 +68,7 @@ const MyBooking = () => {
                     })
                     .catch(err => {
                         console.log(err);
-                        Swal.fire({
-                            title: "Error!",
-                            text: "Something went wrong",
-                            icon: "error"
-                        });
+                        Swal.fire("Error!", "Something went wrong", "error");
                     });
             }
         });
@@ -85,59 +78,56 @@ const MyBooking = () => {
         const rating = ratings[bookingId];
         if (!rating) return Swal.fire("Error", "Please select a rating", "warning");
 
-        // Backend API কল করতে পারো এখানে
         Swal.fire("Success", `You rated ${rating} ⭐`, "success");
-
-        // Submit করার পরে select value reset
         setRatings(prev => ({
             ...prev,
-            [bookingId]: ""  // খালি করে দিচ্ছি
+            [bookingId]: ""
         }));
     };
 
-
     return (
-        <div>
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
             <Header />
-            <div className='w-11/12 mx-auto p-8'>
-                <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">My Bookings</h1>
+            <div className="w-11/12 mx-auto p-8">
+                <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-100">
+                    My Bookings
+                </h1>
 
                 {bookings.length > 0 ? (
-                    <div className="overflow-x-auto shadow-lg rounded-lg">
-                        <table className="min-w-full bg-white divide-y divide-gray-200">
-                            <thead className="bg-gray-100">
+                    <div className="overflow-x-auto shadow-xl rounded-lg bg-white dark:bg-gray-800">
+                        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                            <thead className="bg-gray-100 dark:bg-gray-700">
                                 <tr>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">ID</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Service</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Provider</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Price</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Booking Date</th>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Provider Email</th>
-                                    <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Rating</th>
-                                    <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Action</th>
+                                    {["ID", "Service", "Provider", "Price", "Booking Date", "Provider Email", "Rating", "Action"].map((head, i) => (
+                                        <th key={i} className="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200">
+                                            {head}
+                                        </th>
+                                    ))}
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
+                            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                                 {bookings.map((booking, idx) => (
-                                    <tr key={booking._id} className={`transition hover:bg-gray-50 ${idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.id || '-'}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.service_name || '-'}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.provider_name || '-'}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.price ? `${booking.price} Taka` : '-'}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.bookingDate || '-'}</td>
-                                        <td className="px-4 py-3 text-sm text-gray-700">{booking.userEmail || '-'}</td>
+                                    <tr
+                                        key={booking._id}
+                                        className={`transition hover:bg-gray-50 dark:hover:bg-gray-700 ${idx % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800/50' : 'bg-white dark:bg-gray-800'
+                                            }`}
+                                    >
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.id || '-'}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.service_name || '-'}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.provider_name || '-'}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.price ? `${booking.price} Taka` : '-'}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.bookingDate || '-'}</td>
+                                        <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">{booking.userEmail || '-'}</td>
                                         <td className="px-4 py-3 text-sm text-center flex justify-center items-center gap-2">
                                             <select
                                                 value={ratings[booking._id] || ''}
                                                 onChange={(e) => setRatings({ ...ratings, [booking._id]: e.target.value })}
-                                                className="border rounded px-2 py-1"
+                                                className="border rounded px-2 py-1 bg-white dark:bg-gray-700 dark:text-gray-200"
                                             >
                                                 <option value="">Rate</option>
-                                                <option value="1">1 ⭐</option>
-                                                <option value="2">2 ⭐⭐</option>
-                                                <option value="3">3 ⭐⭐⭐</option>
-                                                <option value="4">4 ⭐⭐⭐⭐</option>
-                                                <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                                                {[1, 2, 3, 4, 5].map(num => (
+                                                    <option key={num} value={num}>{`${num} ⭐`.padEnd(num + 1, '⭐')}</option>
+                                                ))}
                                             </select>
                                             <button
                                                 onClick={() => handleRatingSubmit(booking._id)}
@@ -160,7 +150,9 @@ const MyBooking = () => {
                         </table>
                     </div>
                 ) : (
-                    <p className="text-gray-500 text-center mt-10 text-lg">No booking data found.</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-center mt-10 text-lg">
+                        No booking data found.
+                    </p>
                 )}
             </div>
             <Footer />
