@@ -15,7 +15,16 @@ const Header = () => {
             console.log(error)
         });
     }
+    const handelTheme = (checked) => {
+        console.log(checked)
+        const html = document.querySelector('html')
+        if (checked) {
+            html.setAttribute('data-theme', 'dark')
+        } else {
+            html.setAttribute('data-theme', 'light')
+        }
 
+    }
     return (
         <div className="navbar bg-base-100  flex justify-between w-11/12 mx-auto ">
             {/* Navbar Start */}
@@ -71,6 +80,11 @@ const Header = () => {
                 </div>
                 {/* <a to className="btn btn-ghost text-xl">Gamehub</a> */}
                 <Link to='/' className=' text-2xl font-semibold'>Workly </Link>
+                <input
+                    onChange={(e) => handelTheme(e.target.checked)}
+                    type="checkbox"
+                    defaultChecked={localStorage.getItem('theme') === "dark"}
+                    className="toggle ml-8" />
             </div>
 
 
@@ -112,6 +126,8 @@ const Header = () => {
                             user && <button onClick={handelLogOut} className="btn btn-outline my-4 w-[120px] ">Log Out </button>
                         }
                     </div>
+
+
                 </ul>
             </div>
         </div>
