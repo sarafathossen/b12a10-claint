@@ -1,0 +1,75 @@
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+
+const UpdateProfile = () => {
+     useEffect(() => {
+                document.title = "Update Profile | Visit Update Profile";
+              }, []);
+  const { user, updateUser, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const [name, setName] = useState(user?.displayName || '');
+  const [photo, setPhoto] = useState(user?.photoURL || '');
+  const [message, setMessage] = useState('');
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+
+    if (!name && !photo) {
+      toast('Please fill at least one field to update!');
+      return;
+    }
+
+    updateUser({ displayName: name, photoURL: photo })
+      .then(() => {
+       
+        setUser({ ...user, displayName: name, photoURL: photo });
+        setMessage('✅ Profile updated successfully!');
+        setTimeout(() => navigate('/auth/my-profile'), 1500);
+      })
+      .catch((error) => {
+        console.error(error);
+        setMessage(`❌ ${error.message}`);
+      });
+  };
+
+  return (
+    <div className="flex justify-center  items-center">
+      <div className="card bg-base-100 w-full max-w-sm shadow-2xl py-5">
+        <h2 className="text-2xl font-bold text-center mb-4">Update Profile</h2>
+
+        <form onSubmit={handleUpdate} className="card-body">
+          <label className="label">Name</label>
+          <input
+            name="name"
+            type="text"
+            className="input"
+            placeholder="Update Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <label className="label">Photo URL</label>
+          <input
+            name="photo"
+            type="text"
+            className="input"
+            placeholder="Update Photo URL"
+            value={photo}
+            onChange={(e) => setPhoto(e.target.value)}
+          />
+
+          {message && <p className="text-center text-green-600 mt-3">{message}</p>}
+
+          <button type="submit" className="btn btn-neutral mt-4 w-full">
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default UpdateProfile;

@@ -1,0 +1,61 @@
+:root {
+  --step0: linear-gradient(135deg, #3b82f6, #9333ea);
+  --step1: linear-gradient(135deg, #2563eb, #c026d3);
+  --step2: linear-gradient(135deg, #1d4ed8, #f43f5e);
+  --step3: linear-gradient(135deg, #06b6d4, #f59e0b);
+  --step4: linear-gradient(135deg, #10b981, #3b82f6);
+}
+
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+  transition: all 1s ease;
+  filter: brightness(1.1);
+}
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.block {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .background {
+    filter: brightness(1.05);
+  }
+  .block {
+    border-radius: 8px;
+  }
+}

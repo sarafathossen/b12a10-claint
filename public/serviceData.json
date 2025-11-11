@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "service_name": "Electrical Wiring & Repair",
+    "category": "Electrician",
+    "price": 120,
+    "description": "We provide complete electrical wiring and repair services for homes, shops, and offices. Our licensed electricians handle new wiring, lighting setup, switchboard replacement, and emergency fixes. We ensure total safety, proper grounding, and long-lasting electrical performance using quality materials and advanced tools for complete customer satisfaction and peace of mind.",
+    "image_url": "https://example.com/images/electrician1.jpg",
+    "provider_name": "Rahim Electric Works",
+    "email": "sarafathossen01@gmail.com",
+    "service_rating": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "reviewer": "Rahim",
+          "comment": "Very professional and friendly. Fixed our wiring issues quickly and safely."
+        },
+        {
+          "reviewer": "Karim",
+          "comment": "Came on short notice and solved the problem efficiently. Great experience!"
+        },
+        {
+          "reviewer": "Sadia",
+          "comment": "Reasonable pricing and quality service. Will call again for future work."
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "service_name": "Home Plumbing Service",
+    "category": "Plumber",
+    "price": 100,
+    "description": "We offer expert plumbing solutions including leak repair, drain cleaning, faucet installation, and bathroom fittings. Our skilled plumbers ensure long-lasting results with quality materials and tools. Whether for kitchen, bathroom, or outdoor areas, we guarantee quick response, reliable workmanship, and complete satisfaction at affordable rates for homes and small businesses.",
+    "image_url": "https://example.com/images/plumber1.jpg",
+    "provider_name": "Jalal Plumbing Co.",
+    "email": "jalal.plumber@gmail.com",
+    "service_rating": {
+      "rating": 4.6,
+      "reviews": [
+        {
+          "reviewer": "Imran",
+          "comment": "Fast and efficient service. Solved my kitchen leakage within an hour."
+        },
+        {
+          "reviewer": "Kamal",
+          "comment": "Polite and skilled plumber. Explained everything clearly."
+        },
+        {
+          "reviewer": "Rafiq",
+          "comment": "Affordable and dependable. Will recommend to my neighbors."
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "service_name": "Deep Home Cleaning",
+    "category": "Cleaning",
+    "price": 80,
+    "description": "We provide full home deep cleaning including floors, windows, furniture, and bathrooms. Using eco-friendly materials, our expert team removes dust, stains, and germs effectively. Ideal for before events or seasonal cleaning, our service ensures a fresh, hygienic, and comfortable environment for your home and family with long-lasting cleanliness and shine.",
+    "image_url": "https://example.com/images/cleaner1.jpg",
+    "provider_name": "Shine & Sparkle Cleaners",
+    "email": "sparkle.clean@gmail.com",
+    "service_rating": {
+      "rating": 4.9,
+      "reviews": [
+        {
+          "reviewer": "Tania",
+          "comment": "Absolutely loved the result! My home feels fresh and spotless."
+        },
+        {
+          "reviewer": "Mitu",
+          "comment": "They cleaned every corner perfectly. Worth the money!"
+        },
+        {
+          "reviewer": "Arif",
+          "comment": "Friendly team and great service. Highly recommended!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "service_name": "Painting & Wall Decoration",
+    "category": "Painter",
+    "price": 150,
+    "description": "We provide interior and exterior painting services with premium paints and creative designs. Our experienced painters ensure smooth coating, clean finishing, and color matching. From single rooms to full buildings, we offer affordable, long-lasting solutions to make your space vibrant, elegant, and stylish with professional attention to every detail.",
+    "image_url": "https://example.com/images/painter1.jpg",
+    "provider_name": "ColorPro Painters",
+    "email": "colorpro.paint@gmail.com",
+    "service_rating": {
+      "rating": 4.7,
+      "reviews": [
+        {
+          "reviewer": "Rasel",
+          "comment": "Excellent finish and neat work. Completed on time."
+        },
+        {
+          "reviewer": "Nafisa",
+          "comment": "They helped choose great color combinations. Looks amazing!"
+        },
+        {
+          "reviewer": "Hasan",
+          "comment": "Very professional and polite painters."
+        }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "service_name": "Air Conditioner Installation & Repair",
+    "category": "AC Technician",
+    "price": 200,
+    "description": "Our AC specialists handle installation, maintenance, and repair for all brands. From gas refilling to cleaning filters, we provide complete care for cooling systems. We guarantee fast response, expert technicians, and reliable service so your air conditioner runs smoothly and efficiently all year round at a budget-friendly price point.",
+    "image_url": "https://example.com/images/ac-tech1.jpg",
+    "provider_name": "CoolCare Services",
+    "email": "sarafathossen01@gmail.com",
+    "service_rating": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "reviewer": "Sajid",
+          "comment": "Quick response and professional repair. My AC works perfectly."
+        },
+        {
+          "reviewer": "Mahin",
+          "comment": "Technician was skilled and courteous."
+        },
+        {
+          "reviewer": "Rehana",
+          "comment": "Value for money. Highly reliable service."
+        }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "service_name": "Carpentry & Furniture Fixing",
+    "category": "Carpenter",
+    "price": 130,
+    "description": "We provide professional carpentry services including furniture design, repair, and wood installations. Our craftsmen create durable and stylish products such as cabinets, shelves, and doors. With premium materials and precision tools, we guarantee quality, reliability, and aesthetics to enhance your living or workspace with perfectly customized wooden craftsmanship.",
+    "image_url": "https://example.com/images/carpenter1.jpg",
+    "provider_name": "WoodArt Solutions",
+    "email": "woodart.bd@gmail.com",
+    "service_rating": {
+      "rating": 4.5,
+      "reviews": [
+        {
+          "reviewer": "Arman",
+          "comment": "Good craftsmanship and polite behavior."
+        },
+        {
+          "reviewer": "Rafi",
+          "comment": "Built a custom shelf exactly as I wanted."
+        },
+        {
+          "reviewer": "Milon",
+          "comment": "Neat finishing and quick service."
+        }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "service_name": "Refrigerator Repair",
+    "category": "Appliance Repair",
+    "price": 90,
+    "description": "We repair all types of refrigerators quickly and efficiently. From cooling issues to compressor replacement, our trained technicians handle everything. We use genuine spare parts, provide warranty-backed repairs, and ensure long-lasting performance. Affordable pricing and same-day service make us your trusted choice for reliable refrigerator maintenance and repair solutions.",
+    "image_url": "https://example.com/images/fridge-repair.jpg",
+    "provider_name": "TechFix Electronics",
+    "email": "techfix.bd@gmail.com",
+    "service_rating": {
+      "rating": 4.4,
+      "reviews": [
+        {
+          "reviewer": "Bashir",
+          "comment": "Fixed my fridge within a day. Reliable work!"
+        },
+        {
+          "reviewer": "Sohan",
+          "comment": "Affordable service and friendly technician."
+        },
+        {
+          "reviewer": "Ayesha",
+          "comment": "Problem solved permanently. Thank you!"
+        }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "service_name": "Water Filter Installation",
+    "category": "Plumber",
+    "price": 75,
+    "description": "We install and maintain water filters and purifiers for residential and commercial spaces. Our plumbers ensure perfect fitting, leak-free operation, and clean performance. We also replace old filters and test water quality for safety. Reliable, fast, and affordable service to ensure your drinking water remains pure and contamination-free daily.",
+    "image_url": "https://example.com/images/water-filter.jpg",
+    "provider_name": "PureFlow Plumbers",
+    "email": "pureflow.service@gmail.com",
+    "service_rating": {
+      "rating": 4.6,
+      "reviews": [
+        {
+          "reviewer": "Noman",
+          "comment": "Filter works perfectly now. Great job!"
+        },
+        {
+          "reviewer": "Sima",
+          "comment": "Friendly and professional plumber."
+        },
+        {
+          "reviewer": "Parvez",
+          "comment": "Clean installation and fast service."
+        }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "service_name": "Sofa & Carpet Cleaning",
+    "category": "Cleaning",
+    "price": 60,
+    "description": "We offer deep cleaning for sofas, carpets, and upholstery using advanced steam and vacuum machines. Our methods remove stains, odors, and dust effectively, restoring fabric freshness and extending lifespan. Perfect for homes, offices, or hotels seeking a clean, healthy, and refreshing environment at an affordable and professional service level.",
+    "image_url": "https://example.com/images/sofa-cleaning.jpg",
+    "provider_name": "FreshZone Cleaning",
+    "email": "freshzone.clean@gmail.com",
+    "service_rating": {
+      "rating": 4.9,
+      "reviews": [
+        {
+          "reviewer": "Lamia",
+          "comment": "My sofa looks brand new! Amazing service."
+        },
+        {
+          "reviewer": "Robin",
+          "comment": "They were on time and very thorough."
+        },
+        {
+          "reviewer": "Bithi",
+          "comment": "Friendly cleaners and great value for money."
+        }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "service_name": "CCTV Installation",
+    "category": "Security",
+    "price": 250,
+    "description": "We install CCTV cameras, DVR systems, and remote monitoring solutions for homes and offices. Our technicians ensure clear coverage, perfect angle setup, and secure wiring. We use branded equipment for durability and clarity. Get reliable surveillance for your property with expert guidance and quick installation from our trusted professionals.",
+    "image_url": "https://example.com/images/cctv-install.jpg",
+    "provider_name": "SafeVision Security",
+    "email": "safevision.bd@gmail.com",
+    "service_rating": {
+      "rating": 4.7,
+      "reviews": [
+        {
+          "reviewer": "Sabbir",
+          "comment": "Excellent setup and clear video quality."
+        },
+        {
+          "reviewer": "Nayeem",
+          "comment": "Explained everything properly. Easy to use system."
+        },
+        {
+          "reviewer": "Tithi",
+          "comment": "Fast installation and great after-sales support."
+        }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "service_name": "Pest Control Service",
+    "category": "Cleaning",
+    "price": 110,
+    "description": "We eliminate cockroaches, termites, bed bugs, and mosquitoes using eco-friendly pest control chemicals. Safe for children and pets, our treatments offer long-term relief. Perfect for homes, restaurants, and offices looking for a hygienic environment. Our professional team ensures cleanliness, safety, and comfort with guaranteed pest removal and odor-free treatment.",
+    "image_url": "https://example.com/images/pest-control.jpg",
+    "provider_name": "BugFree Solutions",
+    "email": "bugfree.service@gmail.com",
+    "service_rating": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "reviewer": "Nusrat",
+          "comment": "No more insects after one visit. Great results!"
+        },
+        {
+          "reviewer": "Tahmid",
+          "comment": "Safe for my pets and effective control."
+        },
+        {
+          "reviewer": "Asif",
+          "comment": "Highly professional pest control team."
+        }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "service_name": "Tile & Floor Polishing",
+    "category": "Renovation",
+    "price": 95,
+    "description": "We provide floor and tile polishing services using advanced equipment to restore natural shine and smoothness. Our experts handle marble, ceramic, and granite surfaces with precision. Perfect for homes, offices, or showrooms, our polishing enhances durability and beauty while keeping your floors looking bright, glossy, and easy to maintain.",
+    "image_url": "https://example.com/images/floor-polish.jpg",
+    "provider_name": "FloorCare Experts",
+    "email": "floorcare.bd@gmail.com",
+    "service_rating": {
+      "rating": 4.6,
+      "reviews": [
+        {
+          "reviewer": "Sharif",
+          "comment": "Polishing was top-notch. My floors shine again!"
+        },
+        {
+          "reviewer": "Jui",
+          "comment": "On-time service and clean work."
+        },
+        {
+          "reviewer": "Hasan",
+          "comment": "Very professional team."
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "service_name": "Generator Maintenance",
+    "category": "Electrician",
+    "price": 180,
+    "description": "We offer professional generator maintenance including oil change, wiring inspection, and part replacement. Our electricians handle all models efficiently, ensuring reliable backup power. Regular servicing extends generator life, improves performance, and prevents sudden breakdowns. Count on our expert team for quick, safe, and cost-effective generator care anytime you need.",
+    "image_url": "https://example.com/images/generator.jpg",
+    "provider_name": "PowerFix Service",
+    "email": "powerfix.bd@gmail.com",
+    "service_rating": {
+      "rating": 4.5,
+      "reviews": [
+        {
+          "reviewer": "Shahid",
+          "comment": "Good value for money. Generator runs smoothly."
+        },
+        {
+          "reviewer": "Kamal",
+          "comment": "Quick response and professional electricians."
+        },
+        {
+          "reviewer": "Rony",
+          "comment": "Highly dependable service."
+        }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "service_name": "Gardening & Landscaping",
+    "category": "Outdoor Service",
+    "price": 140,
+    "description": "We design, build, and maintain beautiful gardens and landscapes for homes, offices, and public areas. Our experts handle grass trimming, tree planting, and decorative setups. Using eco-friendly methods, we create green, refreshing outdoor spaces that reflect natural beauty, enhance air quality, and bring peace to your everyday environment.",
+    "image_url": "https://example.com/images/gardening.jpg",
+    "provider_name": "GreenScape Gardeners",
+    "email": "greenscape.garden@gmail.com",
+    "service_rating": {
+      "rating": 4.9,
+      "reviews": [
+        {
+          "reviewer": "Shila",
+          "comment": "Beautiful transformation! Loved the design."
+        },
+        {
+          "reviewer": "Tanvir",
+          "comment": "Creative and friendly gardeners."
+        },
+        {
+          "reviewer": "Priya",
+          "comment": "They maintain my garden regularly and do a great job."
+        }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "service_name": "Home Appliance Setup",
+    "category": "Appliance Installation",
+    "price": 100,
+    "description": "We install TVs, washing machines, ovens, and more safely with expert handling. Our technicians ensure secure mounting, wiring, and configuration for smooth operation. We guide customers on usage and maintenance for better performance. Reliable, affordable, and fast installation service right at your home for complete peace of mind every time.",
+    "image_url": "https://example.com/images/appliance-setup.jpg",
+    "provider_name": "SmartHome Services",
+    "email": "smarthome.setup@gmail.com",
+    "service_rating": {
+      "rating": 4.7,
+      "reviews": [
+        {
+          "reviewer": "Zahid",
+          "comment": "Professional installation. Explained maintenance too."
+        },
+        {
+          "reviewer": "Nadia",
+          "comment": "On-time and polite technician."
+        },
+        {
+          "reviewer": "Biplob",
+          "comment": "Smooth setup and zero issues afterward."
+        }
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "service_name": "Bathroom Renovation",
+    "category": "Plumber",
+    "price": 300,
+    "description": "We provide complete bathroom renovation services including plumbing, tiling, lighting, and fittings. Our team creates stylish, functional, and waterproof spaces with premium materials. We ensure every detail is perfect, from modern designs to durable installations, transforming your bathroom into a comfortable and luxurious area that suits your lifestyle.",
+    "image_url": "https://example.com/images/bathroom-renovation.jpg",
+    "provider_name": "Elite Plumbing & Design",
+    "email": "eliteplumbing.design@gmail.com",
+    "service_rating": {
+      "rating": 4.8,
+      "reviews": [
+        {
+          "reviewer": "Rony",
+          "comment": "My bathroom looks stunning! Excellent work."
+        },
+        {
+          "reviewer": "Sumi",
+          "comment": "Great tile design and clean finish."
+        },
+        {
+          "reviewer": "Khalid",
+          "comment": "Handled everything professionally from start to finish."
+        }
+      ]
+    }
+  }
+]
