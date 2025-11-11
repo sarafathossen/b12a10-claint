@@ -1,20 +1,20 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home";
-import GameDetails from "../Pages/GameDetails";
+
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MyProfile from "../Pages/MyProfile";
 import PrivateRouts from "./PrivateRouts";
-import AllGame from "../Pages/AllGame";
+
 import ForgetPassword from "../Pages/ForgetPassword";
 import UpdateProfile from "../Pages/UpdateProfile";
 import ErrorPage from "../Pages/ErrorPage";
-import AboutUs from "../Pages/AboutUs";
+
 import Loading from "../Pages/Loading";
 import AddProduct from "../Component/AddProduct";
-import UpdateApp from "../Component/UpdateApp";
+
 import ServicePage from "../Pages/ServicePage";
 import ServiceDetails from "../Pages/ServiceDetails";
 import MyBooking from "../Pages/MyBooking";
@@ -38,21 +38,21 @@ const router = createBrowserRouter([
 
         ]
     },
-    {
-        path: '/about-us',
-        element: <AboutUs></AboutUs>,
-    },
+    // {
+    //     path: '/about-us',
+    //     element: <AboutUs></AboutUs>,
+    // },
     {
         path: '/add-product',
         element: <AddProduct></AddProduct>,
     },
-    {
-        path: '/update-app/:id',
-        element: <UpdateApp></UpdateApp>,
-        // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
-        loader: () => fetch(`/appdata.json`),
-        hydrateFallbackElement: <Loading></Loading>,
-    },
+    // {
+    //     path: '/update-app/:id',
+    //     element: <UpdateApp></UpdateApp>,
+    //     // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
+    //     loader: () => fetch(`/appdata.json`),
+    //     hydrateFallbackElement: <Loading></Loading>,
+    // },
     {
         path: '/all-service',
         element: <ServicePage></ServicePage>,

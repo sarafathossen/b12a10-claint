@@ -3,7 +3,7 @@ import Header from '../Component/Header';
 import Footer from '../Component/Footer ';
 import { Outlet } from 'react-router';
 import Banner from '../Component/Banner';
-import NewsLater from '../Component/NewsLater';
+
 import { useNavigation } from 'react-router';
 import Loading from '../Pages/Loading';
 

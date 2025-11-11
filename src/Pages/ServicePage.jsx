@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
-import AppData from '../Component/AppData';
 import Footer from '../Component/Footer ';
 import Header from '../Component/Header';
 import ServiceData from '../Component/ServiceData';
@@ -12,26 +10,52 @@ const ServicePage = () => {
     }, []);
 
     const appsData = useLoaderData() || [];
-    console.log(appsData);
+    const [sortedData, setSortedData] = useState(appsData);
+    const [sortOrder, setSortOrder] = useState(""); // default
+
+    useEffect(() => {
+        let sorted = [...appsData];
+        if (sortOrder === "low-to-high") {
+            sorted.sort((a, b) => a.price - b.price);
+        } else if (sortOrder === "high-to-low") {
+            sorted.sort((a, b) => b.price - a.price);
+        }
+        setSortedData(sorted);
+    }, [sortOrder, appsData]);
 
     return (
         <div>
-            <Header></Header>
+            <Header />
             <main>
-                <div className="w-11/12 mx-auto">
-                    <h2 className='text-2xl font-bold mt-4'>Our Popular Games</h2>
+                <div className="w-11/12 mx-auto flex justify-between items-center mt-4">
+                    <h2 className='text-2xl font-bold'>Our Popular Service</h2>
+
+                    {/* Sort Dropdown */}
+                    <div className=''>
+                        <label className="mr-2 font-semibold">Sort by Price:</label>
+                        <select
+                            value={sortOrder}
+                            onChange={(e) => setSortOrder(e.target.value)}
+                            className="p-2 border rounded"
+                        >
+                            <option value="low-to-high">Low → High</option>
+                            <option value="high-to-low">High → Low</option>
+                        </select>
+                    </div>
                 </div>
+
+                {/* Services Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-6 my-10">
-                    {appsData.map((data) => (
-                        
+                    {sortedData.map((data) => (
                         <ServiceData key={data.id} data={data} />
                     ))}
                 </div>
+
                 <div className="flex justify-center my-5">
                     <Link className='btn btn-outline' to='/'>Back Home</Link>
                 </div>
             </main>
-            <Footer></Footer>
+            <Footer />
         </div>
     );
 };
