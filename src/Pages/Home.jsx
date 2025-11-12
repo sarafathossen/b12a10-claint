@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+
 import { Link, useLoaderData } from 'react-router';
 import ServiceData from '../Component/ServiceData';
 import { useSpring, animated } from '@react-spring/web';
@@ -22,7 +22,7 @@ const FloatingAnimatedCard = ({ children, delay = 0 }) => {
   return (
     <animated.div
       style={props}
-      className="hover:scale-105 transition-transform duration-300 shadow-lg rounded-lg overflow-hidden"
+      className="hover:scale-105 transition-transform duration-300 shadow-lg rounded-lg overflow-hidden bg-white dark:bg-gray-800"
     >
       {children}
     </animated.div>
@@ -67,27 +67,24 @@ const SoftBubbleBackground = () => {
 const Home = () => {
   const appsdata = useLoaderData();
 
-  useEffect(() => {
-    document.title = 'Home | Mobile App';
-  }, []);
+ 
 
   return (
-    <div className="relative px-4 sm:px-6 lg:px-10 py-8 sm:py-10 overflow-hidden">
-      {/* Background Bubbles */}
+    <div className="relative px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 md:py-12 lg:py-16 overflow-hidden">
       <SoftBubbleBackground />
 
       {/* Heading */}
-      <div className="text-center md:text-left mb-8 sm:mb-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 animate-gradient-x">
+      <div className="text-center md:text-left mb-8 sm:mb-10 md:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 animate-gradient-x">
           Our Popular Services
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-gray-500 mt-2">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 mt-2">
           Enjoy the top-rated games our users love the most.
         </p>
       </div>
 
       {/* Service Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
         {appsdata
           .sort((a, b) => b.ratings - a.ratings)
           .slice(0, 6)
@@ -99,10 +96,10 @@ const Home = () => {
       </div>
 
       {/* Load More Button */}
-      <div className="flex justify-center mt-6 sm:mt-8 lg:mt-10">
+      <div className="flex justify-center mt-6 sm:mt-8 md:mt-10 lg:mt-12">
         <Link
           to="/all-service"
-          className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-sm sm:text-base lg:text-lg"
+          className="px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-3 lg:py-4 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
         >
           Load More
         </Link>

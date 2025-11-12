@@ -1,13 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router';
 
 const MyProfile = () => {
-  useEffect(() => {
-    document.title = "My Profile | Visit My Profile";
-  }, []);
+  
 
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   console.log(user)
 
 

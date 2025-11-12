@@ -5,9 +5,7 @@ import Header from '../Component/Header';
 import ServiceData from '../Component/ServiceData';
 
 const ServicePage = () => {
-    useEffect(() => {
-        document.title = "All Game | Visit All Game";
-    }, []);
+   
 
     const appsData = useLoaderData() || [];
     const [sortedData, setSortedData] = useState(appsData);

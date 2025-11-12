@@ -68,51 +68,6 @@ const ServiceDetailsCard = ({ appdata }) => {
   console.log("Matched Bookings outside useEffect:", matchedBookings);
 
 
-
-
-
-
-
-
-
-  // 🔹 Review submit (with rating)
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!comment.trim() || rating === 0)
-      return toast("Please give a rating and write a review!");
-
-    const newReview = {
-      reviewer,
-      comment,
-      rating,
-      date: new Date().toLocaleString(),
-    };
-
-    try {
-      const res = await fetch(
-        `https://workly-server-two.vercel.app/service/${appdata._id}/review`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(newReview),
-        }
-      );
-
-      if (!res.ok) throw new Error("Failed to add review");
-
-      const data = await res.json();
-      console.log("✅ Review added:", data);
-
-      setReviews([...reviews, newReview]);
-      setComment("");
-      setRating(0);
-      toast("Review added successfully!");
-    } catch (err) {
-      console.error(err);
-      toast("Failed to submit review. Try again!");
-    }
-  };
-
   // 🔹 Booking confirm (unchanged)
   const handleConfirmBooking = async () => {
     try {

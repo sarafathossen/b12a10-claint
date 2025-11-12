@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 
 const UpdateProfile = () => {
-     useEffect(() => {
-                document.title = "Update Profile | Visit Update Profile";
-              }, []);
+     
   const { user, updateUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
@@ -13,9 +13,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        document.title = "Login | Visit Login";
-    }, []);
+   
 
     const handleGoogleSignIn = () => {
         SignInGoogle()

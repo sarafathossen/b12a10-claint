@@ -9,6 +9,7 @@ import { useLoaderData } from 'react-router';
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
+  console.log(data)
 
   const [bookings, setBookings] = useState([]);
   const [comment, setComment] = useState("");

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
@@ -6,9 +6,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
 
-     useEffect(() => {
-            document.title = "Register | Visit Register";
-          }, []);
+     
   const { createUser, setUser, updateUser, SignInGoogle } = useContext(AuthContext);
   const [error, setError] = useState('');
   const navigate = useNavigate();

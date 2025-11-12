@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
+
 import Header from '../Component/Header';
 import Footer from '../Component/Footer ';
 import { Link } from 'react-router';
 
 const ErrorPage = () => {
-  useEffect(() => {
-    document.title = "404 Error | Game-Hub";
-  }, []);
+  
   return (
     <div className=''>
       <Header></Header>

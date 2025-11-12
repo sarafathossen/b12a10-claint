@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from 'react-router';
+import { useLoaderData } from 'react-router';
 import ServiceDetailsCard from '../Component/ServiceDetailsCard';
 import Header from '../Component/Header';
 import Footer from '../Component/Footer ';
