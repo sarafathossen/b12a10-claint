@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import ServiceData from '../Component/ServiceData';
-import { useSpring, animated, config } from '@react-spring/web';
+import { useSpring, animated } from '@react-spring/web';
 import WhyChooseUs from '../Component/WhyChooseUs';
 import CustomerTestimonials from '../Component/CustomerTestimonials';
 
@@ -22,7 +22,7 @@ const FloatingAnimatedCard = ({ children, delay = 0 }) => {
   return (
     <animated.div
       style={props}
-      className="hover:scale-105 transition-transform duration-300 shadow-lg rounded-lg overflow-hidden "
+      className="hover:scale-105 transition-transform duration-300 shadow-lg rounded-lg overflow-hidden"
     >
       {children}
     </animated.div>
@@ -72,22 +72,22 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="relative px-4 sm:px-6 lg:px-10 py-10 overflow-hidden">
+    <div className="relative px-4 sm:px-6 lg:px-10 py-8 sm:py-10 overflow-hidden">
       {/* Background Bubbles */}
       <SoftBubbleBackground />
 
       {/* Heading */}
-      <div className="text-center md:text-left mb-10">
+      <div className="text-center md:text-left mb-8 sm:mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400 animate-gradient-x">
           Our Popular Services
         </h2>
-        <p className="text-sm sm:text-base text-gray-500 mt-2">
+        <p className="text-sm sm:text-base md:text-lg text-gray-500 mt-2">
           Enjoy the top-rated games our users love the most.
         </p>
       </div>
 
       {/* Service Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {appsdata
           .sort((a, b) => b.ratings - a.ratings)
           .slice(0, 6)
@@ -99,10 +99,10 @@ const Home = () => {
       </div>
 
       {/* Load More Button */}
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-6 sm:mt-8 lg:mt-10">
         <Link
           to="/all-service"
-          className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300"
+          className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 text-sm sm:text-base lg:text-lg"
         >
           Load More
         </Link>
@@ -120,8 +120,9 @@ const Home = () => {
           animation: gradientX 6s ease infinite;
         }
       `}</style>
-      <WhyChooseUs></WhyChooseUs>
-      <CustomerTestimonials></CustomerTestimonials>
+
+      <WhyChooseUs />
+      <CustomerTestimonials />
     </div>
   );
 };

@@ -71,7 +71,6 @@ const Header = () => {
                 <Link to="/my-service">My Services</Link>
                 <Link to="/add-service">Add Service</Link>
                 <Link to="/my-booking">My Bookings</Link>
-
                 <Link to="/auth/my-profile">
                   <img
                     className="h-[35px] w-[35px] rounded-full border shadow-md object-cover"
@@ -84,7 +83,7 @@ const Header = () => {
                 </Link>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-outline my-4 w-[150px]"
+                  className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300"
                 >
                   Log Out
                 </button>

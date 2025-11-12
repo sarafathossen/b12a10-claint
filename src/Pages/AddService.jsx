@@ -5,7 +5,6 @@ import Header from "../Component/Header";
 import Footer from "../Component/Footer ";
 import { toast } from "react-toastify";
 
-
 const AddService = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -56,8 +55,8 @@ const AddService = () => {
         <div className="min-h-screen bg-gray-50 dark:bg-[#0b0f19] transition-colors duration-300">
             <Header />
 
-            <div className="max-w-3xl mx-auto mt-10 bg-white dark:bg-[#161b27] border border-gray-200 dark:border-gray-700 shadow-lg rounded-2xl p-8">
-                <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">
+            <div className="max-w-xl sm:max-w-2xl mx-auto mt-10 bg-white dark:bg-[#161b27] border border-gray-200 dark:border-gray-700 shadow-lg rounded-2xl p-6 sm:p-8">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-6 text-gray-800 dark:text-gray-100">
                     ✳️ Add New Service
                 </h2>
 
@@ -72,28 +71,28 @@ const AddService = () => {
                             type="text"
                             name="service_name"
                             placeholder="Service Name"
-                            className="p-3 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="p-3 sm:p-4 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                             required
                         />
                         <input
                             type="text"
                             name="category"
                             placeholder="Category"
-                            className="p-3 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="p-3 sm:p-4 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                             required
                         />
                         <input
                             type="number"
                             name="price"
                             placeholder="Price"
-                            className="p-3 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="p-3 sm:p-4 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                             required
                         />
                         <input
                             type="text"
                             name="image_url"
                             placeholder="Image URL"
-                            className="p-3 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="p-3 sm:p-4 border rounded-lg w-full bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                         />
                     </div>
 
@@ -102,21 +101,21 @@ const AddService = () => {
                         name="provider_name"
                         value={user?.displayName || ""}
                         readOnly
-                        className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600"
+                        className="w-full p-3 sm:p-4 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600"
                     />
                     <input
                         type="email"
                         name="email"
                         value={user?.email || ""}
                         readOnly
-                        className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600"
+                        className="w-full p-3 sm:p-4 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-600 dark:text-gray-300 border-gray-300 dark:border-gray-600"
                     />
 
                     <textarea
                         name="description"
                         placeholder="Write short description..."
                         rows={4}
-                        className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 sm:p-4 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                     ></textarea>
 
                     <input
@@ -126,14 +125,13 @@ const AddService = () => {
                         max="5"
                         name="rating"
                         placeholder="Rating (1-5)"
-                        className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
+                        className="w-full p-3 sm:p-4 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                     />
-
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 ${loading
+                        className={`w-full py-3 sm:py-4 font-semibold rounded-lg transition-all duration-300 ${loading
                                 ? "bg-green-300 cursor-not-allowed"
                                 : "bg-green-500 hover:bg-green-600"
                             } text-white`}
