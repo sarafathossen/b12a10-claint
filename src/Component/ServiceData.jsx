@@ -23,7 +23,7 @@ const ServiceData = ({ data }) => {
                 alt={service_name || "Service Image"}
                 className="w-full h-48 object-cover rounded-lg mb-3"
             />
-            <h2 className="text-xl font-semibold mb-2">{service_name || "No Name"}</h2>
+            <h2 className="text-xl truncate font-semibold mb-2">{service_name || "No Name"}</h2>
             <div className="flex justify-between px-2 text-gray-600">
                 <p>{category || "No Category"}</p>
                 <p>{service_rating?.rating || "No Rating"}</p>

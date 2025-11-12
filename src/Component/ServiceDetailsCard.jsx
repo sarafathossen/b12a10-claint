@@ -125,7 +125,7 @@ const ServiceDetailsCard = ({ appdata }) => {
         />
 
         <div className="flex justify-between">
-          <h2 className="text-2xl font-bold">{appdata?.service_name}</h2>
+          <h2 className="text-2xl   font-bold">{appdata?.service_name}</h2>
           <p className="text-xl font-bold">{appdata?.price} Taka</p>
         </div>
 
