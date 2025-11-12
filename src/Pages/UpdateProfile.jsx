@@ -63,7 +63,7 @@ const UpdateProfile = () => {
 
           {message && <p className="text-center text-green-600 mt-3">{message}</p>}
 
-          <button type="submit" className="btn btn-neutral mt-4 w-full">
+          <button type="submit" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300">
             Update
           </button>
         </form>

@@ -141,7 +141,7 @@ const Header = () => {
               </Link>
               <button
                 onClick={handleLogOut}
-                className="btn btn-outline w-[120px]"
+                className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300"
               >
                 Log Out
               </button>

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import ServiceData from '../Component/ServiceData';
 import { useSpring, animated, config } from '@react-spring/web';
+import WhyChooseUs from '../Component/WhyChooseUs';
+import CustomerTestimonials from '../Component/CustomerTestimonials';
 
 const FloatingAnimatedCard = ({ children, delay = 0 }) => {
   const props = useSpring({
@@ -118,6 +120,8 @@ const Home = () => {
           animation: gradientX 6s ease infinite;
         }
       `}</style>
+      <WhyChooseUs></WhyChooseUs>
+      <CustomerTestimonials></CustomerTestimonials>
     </div>
   );
 };

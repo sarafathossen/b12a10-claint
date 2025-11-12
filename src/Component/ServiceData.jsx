@@ -29,7 +29,7 @@ const ServiceData = ({ data }) => {
                 <p>{service_rating?.rating || "No Rating"}</p>
             </div>
             <h2 className='font-bold text-xl'>Price: {price || "N/A"}</h2>
-            <button onClick={handleClick} className='btn btn-outline'>Details</button>
+            <button onClick={handleClick} className='px-6 mt-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300'>Details</button>
         </div>
     );
 };

@@ -77,14 +77,14 @@ const Register = () => {
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
           <h2 className="text-center my-2">Or</h2>
-          <button type="button" onClick={handelGoogleSignIn} className="btn btn-outline w-full"> <FcGoogle className='text-xl' /> Sign in with Google</button>
+          <button type="button" onClick={handelGoogleSignIn} className="btn btn-outline w-full"> <FcGoogle className='text-xl ' /> Sign in with Google</button>
 
           <p className="font-semibold text-center pt-5">
             Already have an account?{" "}
             <Link className="text-secondary" to="/auth/login">Login</Link>
           </p>
 
-          <button type="submit" className="btn btn-neutral mt-4 w-full">
+          <button type="submit" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300">
             Register
           </button>
         </form>

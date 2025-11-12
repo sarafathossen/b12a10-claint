@@ -38,26 +38,17 @@ const router = createBrowserRouter([
 
         ]
     },
-    // {
-    //     path: '/about-us',
-    //     element: <AboutUs></AboutUs>,
-    // },
+    
     {
         path: '/add-product',
         element: <AddProduct></AddProduct>,
     },
-    // {
-    //     path: '/update-app/:id',
-    //     element: <UpdateApp></UpdateApp>,
-    //     // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
-    //     loader: () => fetch(`/appdata.json`),
-    //     hydrateFallbackElement: <Loading></Loading>,
-    // },
+    
     {
         path: '/all-service',
         element: <ServicePage></ServicePage>,
         loader: () => fetch("https://workly-server-two.vercel.app/services"),
-        // loader: () => fetch("https://workly-server-two.vercel.app/models"),
+        
         hydrateFallbackElement: <Loading></Loading>,
     },
     {
@@ -77,7 +68,6 @@ const router = createBrowserRouter([
             <MyService></MyService> ,
         </PrivateRouts>,
         loader: () => fetch(`https://workly-server-two.vercel.app/services`),
-        // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
         hydrateFallbackElement: <Loading></Loading>,
     },
     {
@@ -86,7 +76,7 @@ const router = createBrowserRouter([
             <UpdateService></UpdateService> ,
         </PrivateRouts>,
         loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/services/${params.id}`),
-        // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
+        
         hydrateFallbackElement: <Loading></Loading>,
     },
 
@@ -96,7 +86,7 @@ const router = createBrowserRouter([
             <AddService></AddService> ,
         </PrivateRouts>,
         loader: () => fetch(`/serviceData.json`),
-        // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
+        
         hydrateFallbackElement: <Loading></Loading>,
     },
     {
@@ -105,7 +95,7 @@ const router = createBrowserRouter([
             <MyBooking></MyBooking> ,
         </PrivateRouts>,
         loader: () => fetch(`https://workly-server-two.vercel.app/booking`),
-        // loader: ({ params }) => fetch(`https://workly-server-two.vercel.app/models/${params.id}`),
+        
         hydrateFallbackElement: <Loading></Loading>,
     },
     {

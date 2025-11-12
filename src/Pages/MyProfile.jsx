@@ -8,6 +8,7 @@ const MyProfile = () => {
   }, []);
 
   const { user, logOut } = useContext(AuthContext);
+  console.log(user)
 
 
   const lastLoginTime = user?.metadata?.lastSignInTime
@@ -50,7 +51,7 @@ const MyProfile = () => {
 
       <Link
         to='/auth/update-profile'
-        className="btn btn-outline my-4 w-[150px]"
+        className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300"
       >
         Update Profile
       </Link>

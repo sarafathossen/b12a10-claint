@@ -235,14 +235,14 @@ const ServiceDetailsCard = ({ appdata }) => {
         <div className="flex justify-center">
           <button
             onClick={() => document.getElementById("my_modal_1").showModal()}
-            className="btn btn-outline btn-primary w-[80%]"
+            className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 w-full"
           >
             Book Now
           </button>
         </div>
 
         <div className="flex justify-center">
-          <a className="btn btn-outline w-[80%]" href={`/`}>
+          <a className="text-center px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300 w-full" href={`/`}>
             Go to Home
           </a>
         </div>
@@ -321,14 +321,14 @@ const ServiceDetailsCard = ({ appdata }) => {
               <button
                 type="button"
                 onClick={handleConfirmBooking}
-                className="btn btn-success w-[48%]"
+                className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300"
               >
                 Confirm Booking
               </button>
               <button
                 type="button"
                 onClick={() => document.getElementById("my_modal_1").close()}
-                className="btn btn-outline w-[48%]"
+                className="px-6 py-3 border border-red-600 text-red-600 rounded-lg font-semibold hover:bg-red-600 hover:text-white transition duration-300"
               >
                 Cancel
               </button>
