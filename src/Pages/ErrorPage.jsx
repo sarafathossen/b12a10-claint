@@ -12,7 +12,7 @@ const ErrorPage = () => {
       <Header></Header>
       <div className="flex justify-center flex-col items-center md:min-h-screen p-4">
         <div className="flex justify-center">
-          <img src="https://i.ibb.co/tT4T2Z7s/images.png" alt="" />
+          <img className=' h-[400px] w-[400px] ' src="https://cdn-icons-png.freepik.com/512/5219/5219070.png" alt="" />
         </div>
         <h1 className='text-4xl font-bold my-8'> Page Is not Found <br /> 404 Error </h1>
         <div className="flex justify-center my-4">

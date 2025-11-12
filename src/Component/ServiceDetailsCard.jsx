@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { IoMdDownload } from "react-icons/io";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const ServiceDetailsCard = ({ appdata }) => {
   const { user } = useContext(AuthContext);
@@ -9,6 +10,9 @@ const ServiceDetailsCard = ({ appdata }) => {
 
   const [reviews, setReviews] = useState(appdata?.service_rating?.reviews || []);
   const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(0);
+  const [bookings, setBookings] = useState()
+  const [matchedBookings, setMatchedBookings] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,20 +21,76 @@ const ServiceDetailsCard = ({ appdata }) => {
     }
   }, [appdata]);
 
-  // 🔹 Review submit
+
+
+
+
+  useEffect(() => {
+    if (!user?.email) return;
+
+    const fetchBookings = async () => {
+      try {
+        const res = await fetch("https://workly-server-two.vercel.app/booking");
+        const allBookings = await res.json();
+
+        // 🔹 শুধু লগইন ইউজারের বুকিংগুলো ফিল্টার করো
+        const userBookings = allBookings.filter(
+          (b) =>
+            b.userEmail?.trim().toLowerCase() ===
+            user.email.trim().toLowerCase()
+        );
+
+        setBookings(userBookings);
+      } catch (error) {
+        console.error("❌ Failed to load bookings:", error);
+        toast.error("Failed to load booking data");
+      }
+    };
+
+    fetchBookings();
+  }, [user?.email]);
+  console.log(bookings)
+  console.log(appdata._id)
+
+
+
+
+  useEffect(() => {
+    if (Array.isArray(bookings) && appdata?._id) {
+      const filtered = bookings.filter(
+        (b) => String(b.id) === String(appdata._id) || String(b._id) === String(appdata._id)
+      );
+      setMatchedBookings(filtered);
+    }
+  }, [bookings, appdata]);
+
+  // এখন console.log useEffect এর বাইরে safely করতে পারো
+  console.log("Matched Bookings outside useEffect:", matchedBookings);
+
+
+
+
+
+
+
+
+
+  // 🔹 Review submit (with rating)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!comment.trim()) return alert("Please write a review!");
+    if (!comment.trim() || rating === 0)
+      return toast("Please give a rating and write a review!");
 
     const newReview = {
       reviewer,
       comment,
+      rating,
       date: new Date().toLocaleString(),
     };
 
     try {
       const res = await fetch(
-        `http://localhost:3000/service/${appdata._id}/review`,
+        `https://workly-server-two.vercel.app/service/${appdata._id}/review`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -45,14 +105,15 @@ const ServiceDetailsCard = ({ appdata }) => {
 
       setReviews([...reviews, newReview]);
       setComment("");
-      alert("Review added successfully!");
+      setRating(0);
+      toast("Review added successfully!");
     } catch (err) {
       console.error(err);
-      alert("Failed to submit review. Try again!");
+      toast("Failed to submit review. Try again!");
     }
   };
 
-  // 🔹 Booking confirm
+  // 🔹 Booking confirm (unchanged)
   const handleConfirmBooking = async () => {
     try {
       const resAll = await fetch("https://workly-server-two.vercel.app/booking");
@@ -60,11 +121,12 @@ const ServiceDetailsCard = ({ appdata }) => {
       const newId = (allBookings?.length || 0) + 500;
 
       const bookingData = {
-        id: newId,
+        id: appdata._id,
         service_name: appdata.service_name,
         provider_name: appdata.provider_name,
         price: appdata.price,
         email: appdata.email,
+        rating: appdata.service_rating,
         userEmail: user?.email || "guest@example.com",
         bookingDate: new Date().toLocaleDateString("en-GB"),
         bookingTime: new Date().toLocaleTimeString("en-GB"),
@@ -73,9 +135,10 @@ const ServiceDetailsCard = ({ appdata }) => {
       const modal = document.getElementById("my_modal_1");
 
       if (user?.email === appdata.email) {
-        alert("You cannot book your own service!");
+        toast("❌ You cannot book your own service!");
         modal?.close();
         document.body.classList.remove("modal-open");
+        navigate("/all-service");
         return;
       }
 
@@ -87,16 +150,13 @@ const ServiceDetailsCard = ({ appdata }) => {
 
       if (!res.ok) throw new Error("Failed to book service");
 
-      const data = await res.json();
-      console.log("✅ Booking added:", data);
-
-      alert("Booking Confirmed!");
+      toast("Booking Confirmed!");
       modal?.close();
       document.body.classList.remove("modal-open");
       navigate("/all-service");
     } catch (err) {
       console.error(err);
-      alert("Failed to book service. Try again!");
+      toast("Failed to book service. Try again!");
     }
   };
 
@@ -135,42 +195,41 @@ const ServiceDetailsCard = ({ appdata }) => {
         {/* Review Section */}
         <div className="mt-6">
           <h2 className="text-xl font-bold mb-3">
-            Rating: {appdata?.service_rating?.rating || 0} ⭐
+            Rating: {matchedBookings && matchedBookings.length > 0
+              ? matchedBookings[0]?.rating?.rating || 0
+              : appdata?.service_rating?.rating || 0} ⭐
           </h2>
+
           <h3 className="text-lg font-semibold mb-2">Customer Reviews:</h3>
+
           <ul className="space-y-3 mb-6">
-            {reviews.map((review, index) => (
-              <li
-                key={index}
-                className="p-3 border rounded-lg bg-base-200 shadow-sm"
-              >
-                <p className="font-semibold text-primary">{review.reviewer}</p>
-                <p>{review.comment}</p>
-              </li>
-            ))}
+            {matchedBookings && matchedBookings.length > 0
+              ? matchedBookings[0]?.rating?.reviews?.map((review, index) => (
+                <li
+                  className="p-3 border rounded-lg bg-base-200 shadow-sm gap-4"
+                  key={index}
+                >
+                  <p className="font-semibold text-primary">{review.reviewer}</p>
+                  <p>⭐ {review.rating}/5</p>
+                  <p>{review.comment}</p>
+                </li>
+              ))
+              : reviews.map((review, index) => (
+                <li
+                  key={index}
+                  className="p-3 border rounded-lg bg-base-200 shadow-sm"
+                >
+                  <p className="font-semibold text-primary">{review.reviewer}</p>
+                  <p>⭐ {review.rating}/5</p>
+                  <p>{review.comment}</p>
+                </li>
+              ))}
           </ul>
 
-          <div className="p-4 border rounded-lg bg-base-100 shadow-md">
-            <h3 className="text-lg font-semibold mb-3">Write a Review</h3>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                value={reviewer}
-                readOnly
-                className="w-full p-2 border rounded bg-base-200"
-              />
-              <textarea
-                placeholder="Write your review..."
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                className="w-full p-2 border rounded bg-base-200"
-              />
-              <button type="submit" className="btn btn-primary w-full">
-                Submit Review
-              </button>
-            </form>
-          </div>
+          {/* Add Review Form */}
+          
         </div>
+
 
         {/* Booking Modal Button */}
         <div className="flex justify-center">
@@ -189,7 +248,7 @@ const ServiceDetailsCard = ({ appdata }) => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Booking Modal */}
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box bg-base-100 text-base-content">
           <h3 className="font-bold text-lg mb-4 text-center">

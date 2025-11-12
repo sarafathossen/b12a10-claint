@@ -19,7 +19,7 @@ const ServiceData = ({ data }) => {
     return (
         <div className="card bg-base-200 shadow-md p-4 rounded-xl hover:shadow-lg transition-all duration-300 w-full my-3">
             <img
-                src={data?.coverPhoto || "https://i.ibb.co.com/RTM46szK/Al-Hasan.jpg " }
+                src={data?.image_url || "https://i.ibb.co.com/RTM46szK/Al-Hasan.jpg " }
                 alt={service_name || "Service Image"}
                 className="w-full h-48 object-cover rounded-lg mb-3"
             />

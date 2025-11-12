@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { useLoaderData, useNavigate } from 'react-router';
 import Header from '../Component/Header';
 import Footer from '../Component/Footer ';
+import { toast } from 'react-toastify';
 
 const UpdateService = () => {
     const data = useLoaderData();
@@ -42,7 +43,7 @@ const UpdateService = () => {
             const data = await res.json();
             console.log('Service updated:', data);
 
-            alert('Service updated successfully!');
+            toast('Service updated successfully!');
             navigate('/all-service');
         } catch (err) {
             console.error(err);
@@ -116,11 +117,13 @@ const UpdateService = () => {
                     <input
                         type="number"
                         step="0.1"
-                        defaultValue={model.service_rating?.rating}
+                        min="1"
+                        max="10"
                         name="rating"
-                        placeholder="Rating (e.g. 4.8)"
-                        className="w-full p-2 border rounded bg-gray-100 dark:bg-gray-700 dark:text-gray-100"
+                        placeholder="Rating (1-10)"
+                        className="w-full p-3 border rounded-lg bg-gray-100 dark:bg-[#1e2535] text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
                     />
+
                     <button
                         type="submit"
                         className={`bg-green-500 text-white px-4 py-2 w-full rounded hover:bg-green-600 transition duration-200 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}

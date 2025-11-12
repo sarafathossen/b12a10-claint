@@ -1,26 +1,16 @@
-# Project Name: GameHub
+# Workly Service Management
 
-## Purpose
-GameHub is a React-based web application that allows users to browse, view, and interact with a collection of mobile games. The app supports user authentication, password reset, and personalized features for logged-in users.
+**Live Site:** [https://your-live-site-url.com](https://your-live-site-url.com)
 
-## Live URL
-https://game-hub-apps.netlify.app/
+---
 
 ## Key Features
-- **User Authentication:** Users can register and login with email/password or Google Sign-In.
-- **Protected Routes:** Certain pages (e.g., game details) are accessible only to logged-in users.
-- **Password Reset:** Users can reset their password using email.
-- **Dynamic Data Display:** Game data is displayed dynamically using React components.
-- **User Profile Update:** Users can update their display name and profile photo.
-- **Responsive Design:** Optimized for both desktop and mobile devices.
-- **Seamless Navigation:** Users are redirected back to the page they tried to access after login.
 
-## npm Packages Used
-- `react` – Frontend library for building UI.
-- `react-router` – Routing and navigation.
-- `firebase` – Authentication and backend services.
-- `tailwindcss` – Styling and layout.
-- `vite` – Development server and build tool.
-- `react-icon` – For Icons.
-- `react-toastify` – For Aleart.
-- `daisyui` – For Design.
+- **User Authentication:** Users can sign in and manage their own services securely using AuthProvider.
+- **Add / Update Services:** Users can add new services and update existing ones with details like name, category, price, image, and rating.
+- **Delete Services:** Users can delete their services with a confirmation popup using SweetAlert2.
+- **Dark & Light Mode Support:** The interface supports both dark and light themes for better user experience.
+- **Responsive Design:** Fully responsive layout that works seamlessly on desktop, tablet, and mobile devices.
+- **Service Booking & Reviews:** Users can book services, write reviews, and see existing reviews for each service.
+
+---
