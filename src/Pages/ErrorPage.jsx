@@ -16,7 +16,7 @@ const ErrorPage = () => {
         </div>
         <h1 className='text-4xl font-bold my-8'> Page Is not Found <br /> 404 Error </h1>
         <div className="flex justify-center my-4">
-          <Link to='/' className='btn btn-outline' >Back Home</Link>
+          <Link to='/' className='px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300' >Back Home</Link>
         </div>
       </div>
 

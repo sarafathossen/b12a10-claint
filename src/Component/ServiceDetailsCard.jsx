@@ -203,18 +203,23 @@ const ServiceDetailsCard = ({ appdata }) => {
           <h3 className="text-lg font-semibold mb-2">Customer Reviews:</h3>
 
           <ul className="space-y-3 mb-6">
-            {matchedBookings && matchedBookings.length > 0
-              ? matchedBookings[0]?.rating?.reviews?.map((review, index) => (
-                <li
-                  className="p-3 border rounded-lg bg-base-200 shadow-sm gap-4"
-                  key={index}
-                >
-                  <p className="font-semibold text-primary">{review.reviewer}</p>
-                  <p>⭐ {review.rating}/5</p>
-                  <p>{review.comment}</p>
-                </li>
-              ))
-              : reviews.map((review, index) => (
+            {matchedBookings && matchedBookings.length > 0 ? (
+              matchedBookings[0]?.rating?.reviews?.length > 0 ? (
+                matchedBookings[0].rating.reviews.map((review, index) => (
+                  <li
+                    className="p-3 border rounded-lg bg-base-200 shadow-sm gap-4"
+                    key={index}
+                  >
+                    <p className="font-semibold text-primary">{review.reviewer}</p>
+                    <p>⭐ {review.rating}/5</p>
+                    <p>{review.comment}</p>
+                  </li>
+                ))
+              ) : (
+                <p className="text-gray-500">No Review Yet</p>
+              )
+            ) : reviews && reviews.length > 0 ? (
+              reviews.map((review, index) => (
                 <li
                   key={index}
                   className="p-3 border rounded-lg bg-base-200 shadow-sm"
@@ -223,11 +228,13 @@ const ServiceDetailsCard = ({ appdata }) => {
                   <p>⭐ {review.rating}/5</p>
                   <p>{review.comment}</p>
                 </li>
-              ))}
+              ))
+            ) : (
+              <p className="text-gray-500">No Review Yet</p>
+            )}
           </ul>
 
           {/* Add Review Form */}
-          
         </div>
 
 
