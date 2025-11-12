@@ -9,7 +9,7 @@ import { useLoaderData } from 'react-router';
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const data = useLoaderData();
-  console.log(data)
+  console.log(data);
 
   const [bookings, setBookings] = useState([]);
   const [comment, setComment] = useState("");
@@ -26,8 +26,7 @@ const MyBooking = () => {
         const res = await fetch('https://workly-server-two.vercel.app/booking');
         const data = await res.json();
         const filtered = data
-          .filter(b => b.userEmail?.trim().toLowerCase() === user.email.trim().toLowerCase())
-          .map(b => ({ ...b })); // keep `id` as is
+          .filter(b => b.userEmail?.trim().toLowerCase() === user.email.trim().toLowerCase());
         setBookings(filtered);
       } catch (err) {
         console.error(err);
@@ -36,8 +35,8 @@ const MyBooking = () => {
     fetchBookings();
   }, [user?.email]);
 
-  // Delete booking
-  const handleDelete = (id) => {
+  // Delete booking using MongoDB _id
+  const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -46,12 +45,12 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://workly-server-two.vercel.app/booking/${id}`, { method: "DELETE" })
+        fetch(`https://workly-server-two.vercel.app/booking/${_id}`, { method: "DELETE" })
           .then(res => res.json())
           .then(data => {
-            if (data.deletedCount > 0 || data.success) {
+            if (data.success) {
               Swal.fire("Deleted!", "Your booking has been deleted.", "success");
-              setBookings(prev => prev.filter(b => b.id !== id)); // id দিয়ে filter
+              setBookings(prev => prev.filter(b => b._id !== _id));
             }
           })
           .catch(() => Swal.fire("Error!", "Something went wrong.", "error"));
@@ -59,10 +58,9 @@ const MyBooking = () => {
     });
   };
 
-  // Submit review
+  // Submit review using service id
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     if (!comment.trim() || rating === 0) return toast.error("Please give a rating and write a review!");
     if (!selectedServiceId) return toast.error("No service selected!");
@@ -82,10 +80,10 @@ const MyBooking = () => {
 
       if (!res.ok) throw new Error("Failed to add review");
 
-      // Update local UI immediately
+      // Update local UI
       setBookings(prev =>
         prev.map(b =>
-          b.id === selectedServiceId // id দিয়ে matching
+          b.id === selectedServiceId
             ? {
               ...b,
               service_rating: {
@@ -130,7 +128,7 @@ const MyBooking = () => {
             </thead>
             <tbody>
               {bookings.map(b => (
-                <tr key={b.id} className="text-center">
+                <tr key={b._id} className="text-center">
                   <td className="border px-4 py-2">{b.service_name}</td>
                   <td className="border px-4 py-2">{b.provider_name}</td>
                   <td className="border px-4 py-2">{b.price} Taka</td>
@@ -138,7 +136,7 @@ const MyBooking = () => {
                   <td className="border px-4 py-2 flex justify-center gap-2">
                     <button onClick={() => { setSelectedServiceId(b.id); document.getElementById("review_modal").showModal(); }}
                       className="bg-green-500 text-white px-3 py-1 rounded">Review</button>
-                    <button onClick={() => handleDelete(b.id)}
+                    <button onClick={() => handleDelete(b._id)}
                       className="bg-red-500 text-white px-3 py-1 rounded">Cancel</button>
                   </td>
                 </tr>
@@ -175,4 +173,3 @@ const MyBooking = () => {
 };
 
 export default MyBooking;
-// Okkkkk 
