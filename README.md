@@ -1,6 +1,6 @@
 # Workly Service Management
 
-**Live Site:** [https://your-live-site-url.com](https://your-live-site-url.com)
+**Live Site:**  https://workly-web.netlify.app/
 
 ---
 
