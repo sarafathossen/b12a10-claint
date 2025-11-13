@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Ayesha Rahman",
     role: "Entrepreneur",
-    image: "https://i.ibb.co/SnD6b7K/female1.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9FXQQHGfMSl47ZZzoX4Ro4EPhTfjSokbYCQ&s",
     review:
       "They designed my business website perfectly! The team is very responsive and delivered exactly what I needed — highly recommended!",
   },
@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Tanvir Hasan",
     role: "Freelancer",
-    image: "https://i.ibb.co/p1fL64Q/male1.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUM5hM53vez74ffS2Zs2mWgShg04rNsbp_cQ&s",
     review:
       "Excellent service and on-time delivery. My e-commerce site now looks professional and user-friendly. Great experience overall!",
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Nusrat Jahan",
     role: "Digital Marketer",
-    image: "https://i.ibb.co/6sxdVwF/female2.jpg",
+    image: "https://imgk.timesnownews.com/story/nusratjahan-ians_0.jpg",
     review:
       "Amazing support! They not only built my site but also guided me with SEO and marketing. I’m really satisfied with the result.",
   },

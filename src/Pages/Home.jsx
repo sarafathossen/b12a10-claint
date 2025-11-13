@@ -79,7 +79,7 @@ const Home = () => {
           Our Popular Services
         </h2>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 mt-2">
-          Enjoy the top-rated games our users love the most.
+          Enjoy the top-rated services our users love the most.
         </p>
       </div>
 
