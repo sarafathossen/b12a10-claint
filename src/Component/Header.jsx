@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  // ✅ থিম ইনিশিয়াল সেট
+  
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     const html = document.querySelector('html');
@@ -27,7 +27,7 @@ const Header = () => {
     const html = document.querySelector('html');
     const newTheme = checked ? 'dark' : 'light';
     html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme); // ✅ সেভ থিম পছন্দ
+    localStorage.setItem('theme', newTheme); 
   };
 
   return (
@@ -94,12 +94,12 @@ const Header = () => {
 
         <Link
           to="/"
-          className="text-2xl font-semibold text-gray-800 dark:text-gray-100 ml-2"
+          className="text-3xl font-bold text-gray-800 dark:text-gray-100 ml-2"
         >
           Workly
         </Link>
 
-        {/* 🌙 Theme Toggle */}
+        
         <label className="flex items-center cursor-pointer ml-4">
           <input
             onChange={(e) => handleTheme(e.target.checked)}
@@ -110,7 +110,7 @@ const Header = () => {
         </label>
       </div>
 
-      {/* Navbar Menu for Large Devices */}
+      
       <div className="hidden lg:flex items-center">
         <ul className="menu menu-horizontal px-1 gap-4 items-center dark:text-gray-100">
           <Link to="/">Home</Link>

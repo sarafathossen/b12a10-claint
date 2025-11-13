@@ -4,8 +4,8 @@ import Header from '../Component/Header';
 import Footer from '../Component/Footer ';
 
 const ServiceDetails = () => {
-    const data = useLoaderData(); // Loader থেকে single service রিটার্ন করছে
-    const appdata = data.result; // সরাসরি set
+    const data = useLoaderData(); 
+    const appdata = data.result; 
 
     console.log('ServiceDetails data:', appdata);
 

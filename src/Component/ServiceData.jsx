@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const ServiceData = ({ data }) => {
-    const { _id, service_name, category, price, service_rating } = data || {}; // safe destructure
+    const { _id, service_name, category, price, service_rating } = data || {}; 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    // console.log(_id)
+    
 
     const handleClick = () => {
         if (!user) {

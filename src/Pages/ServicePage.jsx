@@ -9,7 +9,7 @@ const ServicePage = () => {
 
     const appsData = useLoaderData() || [];
     const [sortedData, setSortedData] = useState(appsData);
-    const [sortOrder, setSortOrder] = useState(""); // default
+    const [sortOrder, setSortOrder] = useState(""); 
 
     useEffect(() => {
         let sorted = [...appsData];
@@ -28,7 +28,7 @@ const ServicePage = () => {
                 <div className="w-11/12 mx-auto flex justify-between items-center mt-4">
                     <h2 className='text-2xl font-bold'>Our Popular Service</h2>
 
-                    {/* Sort Dropdown */}
+                    
                     <div className=''>
                         <label className="mr-2 font-semibold">Sort by Price:</label>
                         <select
@@ -42,7 +42,7 @@ const ServicePage = () => {
                     </div>
                 </div>
 
-                {/* Services Grid */}
+                
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-6 my-10">
                     {sortedData.map((data) => (
                         <ServiceData key={data.id} data={data} />

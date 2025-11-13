@@ -9,8 +9,7 @@ const ServiceDetailsCard = ({ appdata }) => {
   const reviewer = user?.displayName || "Guest";
 
   const [reviews, setReviews] = useState(appdata?.service_rating?.reviews || []);
-  const [comment, setComment] = useState("");
-  const [rating, setRating] = useState(0);
+
   const [bookings, setBookings] = useState()
   const [matchedBookings, setMatchedBookings] = useState([]);
   const navigate = useNavigate();
@@ -33,7 +32,7 @@ const ServiceDetailsCard = ({ appdata }) => {
         const res = await fetch("https://workly-server-two.vercel.app/booking");
         const allBookings = await res.json();
 
-        // 🔹 শুধু লগইন ইউজারের বুকিংগুলো ফিল্টার করো
+        
         const userBookings = allBookings.filter(
           (b) =>
             b.userEmail?.trim().toLowerCase() ===
@@ -64,11 +63,11 @@ const ServiceDetailsCard = ({ appdata }) => {
     }
   }, [bookings, appdata]);
 
-  // এখন console.log useEffect এর বাইরে safely করতে পারো
+  
   console.log("Matched Bookings outside useEffect:", matchedBookings);
 
 
-  // 🔹 Booking confirm (unchanged)
+ 
   const handleConfirmBooking = async () => {
     try {
       const resAll = await fetch("https://workly-server-two.vercel.app/booking");
@@ -147,13 +146,9 @@ const ServiceDetailsCard = ({ appdata }) => {
           )}
         </div>
 
-        {/* Review Section */}
+        
         <div className="mt-6">
-          <h2 className="text-xl font-bold mb-3">
-            Rating: {matchedBookings && matchedBookings.length > 0
-              ? matchedBookings[0]?.rating?.rating || 0
-              : appdata?.service_rating?.rating || 0} ⭐
-          </h2>
+          
 
           <h3 className="text-lg font-semibold mb-2">Customer Reviews:</h3>
 
@@ -189,11 +184,11 @@ const ServiceDetailsCard = ({ appdata }) => {
             )}
           </ul>
 
-          {/* Add Review Form */}
+         
         </div>
 
 
-        {/* Booking Modal Button */}
+        
         <div className="flex justify-center">
           <button
             onClick={() => document.getElementById("my_modal_1").showModal()}
@@ -210,7 +205,7 @@ const ServiceDetailsCard = ({ appdata }) => {
         </div>
       </div>
 
-      {/* Booking Modal */}
+      
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box bg-base-100 text-base-content">
           <h3 className="font-bold text-lg mb-4 text-center">

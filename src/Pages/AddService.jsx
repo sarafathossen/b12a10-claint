@@ -65,7 +65,7 @@ const AddService = () => {
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* Grid for inputs */}
+                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="text"

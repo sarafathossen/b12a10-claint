@@ -18,7 +18,7 @@ const MyBooking = () => {
 
   const reviewer = user?.displayName || "Guest";
 
-  // Load bookings
+  
   useEffect(() => {
     if (!user?.email) return;
     const fetchBookings = async () => {
@@ -36,7 +36,7 @@ const MyBooking = () => {
     fetchBookings();
   }, [user?.email]);
 
-  // Delete booking
+  
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -59,7 +59,7 @@ const MyBooking = () => {
     });
   };
 
-  // Submit review
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -150,7 +150,7 @@ const MyBooking = () => {
         )}
       </div>
 
-      {/* Review Modal */}
+     
       <dialog id="review_modal" className="modal">
         <div className="modal-box bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
           <h3 className="font-bold text-lg mb-4 text-center">Submit Review</h3>

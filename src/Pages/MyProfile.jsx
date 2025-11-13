@@ -41,7 +41,7 @@ const MyProfile = () => {
       <h2 className="font-bold text-xl mb-2">{user?.displayName || ""}</h2>
       <p className="text-gray-500 mb-2">{user?.email}</p>
 
-      {/* Display last login time */}
+      
       <p className="text-gray-400 mb-4">
         Last Login: <span className="font-medium">{lastLoginTime}</span>
       </p>

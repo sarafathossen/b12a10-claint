@@ -40,7 +40,7 @@ const AddProduct = () => {
                     <div className="card-body p-6 relative">
                         <h2 className="text-2xl font-bold text-center mb-6">Add New Model</h2>
                         <form onSubmit={handelSubmit} className="space-y-4">
-                            {/* Name Field */}
+                            
                             <div>
                                 <label className="label font-medium">Name</label>
                                 <input
@@ -52,7 +52,7 @@ const AddProduct = () => {
                                 />
                             </div>
 
-                            {/* Category Dropdown */}
+                            
                             <div>
                                 <label className="label font-medium">Category</label>
                                 <input
@@ -64,7 +64,7 @@ const AddProduct = () => {
                                 />
                             </div>
 
-                            {/* Description Textarea */}
+                            
                             <div>
                                 <label className="label font-medium">Description</label>
                                 <textarea
@@ -76,7 +76,7 @@ const AddProduct = () => {
                                 ></textarea>
                             </div>
 
-                            {/* Thumbnail URL */}
+                            
                             <div>
                                 <label className="label font-medium">Thumbnail URL</label>
                                 <input
@@ -88,7 +88,7 @@ const AddProduct = () => {
                                 />
                             </div>
 
-                            {/* Submit Button */}
+                           
                             <button
                                 type="submit"
                                 className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"

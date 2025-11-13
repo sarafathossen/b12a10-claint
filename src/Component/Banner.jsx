@@ -33,13 +33,13 @@ const Banner = () => {
           id={`slide${slide.id}`}
           className="carousel-item relative w-full"
         >
-          {/* ✅ Background image instead of img tag */}
+          
           <div
             className="w-full h-[400px] bg-cover bg-center"
             style={{ backgroundImage: `url(${slide.image})` }}
           ></div>
 
-          {/* Overlay content */}
+          
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6">
             <h2 className="text-3xl font-bold mb-3">{slide.title}</h2>
             <p className="max-w-xl mb-4 text-sm md:text-base">{slide.details}</p>
@@ -51,7 +51,7 @@ const Banner = () => {
             </button>
           </div>
 
-          {/* Navigation */}
+          
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a
               href={`#slide${index === 0 ? slides.length : index}`}
