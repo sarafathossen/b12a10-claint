@@ -5,11 +5,11 @@ import Header from '../Component/Header';
 import ServiceData from '../Component/ServiceData';
 
 const ServicePage = () => {
-   
+
 
     const appsData = useLoaderData() || [];
     const [sortedData, setSortedData] = useState(appsData);
-    const [sortOrder, setSortOrder] = useState(""); 
+    const [sortOrder, setSortOrder] = useState("");
 
     useEffect(() => {
         let sorted = [...appsData];
@@ -28,7 +28,7 @@ const ServicePage = () => {
                 <div className="w-11/12 mx-auto flex justify-between items-center mt-4">
                     <h2 className='text-2xl font-bold'>Our Popular Service</h2>
 
-                    
+
                     <div className=''>
                         <label className="mr-2 font-semibold">Sort by Price:</label>
                         <select
@@ -42,7 +42,7 @@ const ServicePage = () => {
                     </div>
                 </div>
 
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-6 my-10">
                     {sortedData.map((data) => (
                         <ServiceData key={data.id} data={data} />
@@ -50,7 +50,7 @@ const ServicePage = () => {
                 </div>
 
                 <div className="flex justify-center my-5">
-                    <Link className='btn btn-outline' to='/'>Back Home</Link>
+                    <Link className='px-6 mt-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition duration-300' to='/'>Back Home</Link>
                 </div>
             </main>
             <Footer />
