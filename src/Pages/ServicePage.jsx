@@ -36,6 +36,7 @@ const ServicePage = () => {
                             onChange={(e) => setSortOrder(e.target.value)}
                             className="p-2 border rounded"
                         >
+                            <option value="sorted">Sort by Choose</option>
                             <option value="low-to-high">Low → High</option>
                             <option value="high-to-low">High → Low</option>
                         </select>
